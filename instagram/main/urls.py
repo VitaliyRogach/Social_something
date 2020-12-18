@@ -1,8 +1,9 @@
 from django.urls import path
 from . import views
-from django.contrib.auth import views as authViews
+
 
 urlpatterns = [
-    path('sing', views.singview),
-
+    path('sign', views.signview),
+    path('registration', views.registration),
+    path('main', views.main_page),
 ]
