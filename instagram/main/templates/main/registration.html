@@ -1,16 +1,23 @@
+
 {% extends 'main/sign.html' %}
 {% block content %}
+
+
   <div class="container2">
-    <form class="decor">
+    <form class="decor" method="post">
+      {% csrf_token %}
   <div class="form-left-decoration"></div>
   <div class="form-right-decoration"></div>
   <div class="circle"></div>
   <div class="form-inner">
     <h3>Registration</h3>
-      <input type="text" placeholder="Username">
-      <input type="text" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input type="password2" placeholder="Confirm password">
+    {{ form.non_field_errors }}
+      {% for field in form %}
+      {{ field }}
+      {% if field.errors %}
+      <div class="text-center" style="color:red;">{{ field.errors }}</div>
+      {% endif %}
+      {% endfor %}
     <div class="buttons">
         <input class="right-button" type="submit" value="Register">
     </div>
