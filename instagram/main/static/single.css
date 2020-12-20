@@ -116,8 +116,9 @@ body {background: #00FF7F}
   border-radius: 50%;
   background: white;
 }
+
 .form-inner {padding: 50px;}
-.form-inner input {
+.form-inner input{
   display: block;
   width: 100%;
   padding: 0 20px;
@@ -133,11 +134,12 @@ body {background: #00FF7F}
 .form-inner input[type="submit"]  {
   margin-top: 30px;
   background: #00FF7F;
-
   color: white;
   font-size: 14px;
 }
 
+.form-inner input[type="button"]:hover {background: #3CB371;}
+.form-inner input[type="button"]:active { background: #2E8B57; }
 .form-inner input[type="submit"]:hover {background: #3CB371;}
 .form-inner input[type="submit"]:active { background: #2E8B57; }
 
@@ -158,8 +160,14 @@ body {background: #00FF7F}
 .buttons{
 display: flex;
 }
-.right-button{
+.form-inner input[type="button"]{
 text-decoration: none;
+margin-top: 30px;
+background: #00FF7F;
+display: block;
+color: white;
+font-size: 14px;
+
 }
 .left-button {
 margin-right: 10px;

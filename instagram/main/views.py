@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.contrib.auth.models import User
 from .forms import RegisterUserForm, LoginUserForm
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 
 
 class SignUpView(CreateView):
@@ -17,9 +16,17 @@ class SignUpView(CreateView):
 class SignInView(LoginView):
     model = User
     form_class = LoginUserForm
-    success_url = reverse_lazy('main')
+    success_url = reverse_lazy('signup')
     template_name = 'main/sign.html'
 
+
+# class UserProfile(DetailView):
+#     model = User
+#     success_url = reverse_lazy('profile')
+#     template_name = 'main/profile.html'
+
+def ProfileUser(request):
+    return render(request, 'main/profile.html')
 
 def signview(request):
     return render(request, 'main/sign.html')
@@ -29,5 +36,4 @@ def registration(request):
     return render(request, 'main/registration.html')
 
 def main_page(request):
-
     return render(request, 'main/main.html')
