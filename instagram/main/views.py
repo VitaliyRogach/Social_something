@@ -4,6 +4,7 @@ from django.views.generic import CreateView, ListView, DetailView
 from django.contrib.auth.models import User
 from .forms import RegisterUserForm, LoginUserForm
 from django.contrib.auth.views import LoginView
+from .models import Profile
 
 
 class SignUpView(CreateView):
@@ -20,10 +21,15 @@ class SignInView(LoginView):
     template_name = 'main/sign.html'
 
 
-# class UserProfile(DetailView):
-#     model = User
-#     success_url = reverse_lazy('profile')
-#     template_name = 'main/profile.html'
+class UserProfile(DetailView):
+    model = Profile
+    slug_field = "slug"
+    context_object_name = "profile"
+    template_name = 'main/profile.html'
+
+    def get_object(self, queryset=None):
+        return User.objects.get(username=self.kwargs.get('slug'))
+
 
 def ProfileUser(request):
     return render(request, 'main/profile.html')
