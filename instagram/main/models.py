@@ -12,7 +12,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=30)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=40)
-    slug = models.SlugField(max_length=50, unique=True, blank=True)
+    slug = models.SlugField(max_length=50, blank=True)
 
     def __str__(self):
         return self.name

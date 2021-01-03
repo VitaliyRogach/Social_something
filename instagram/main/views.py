@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
@@ -34,12 +35,14 @@ class UserProfile(DetailView):
 def ProfileUser(request):
     return render(request, 'main/profile.html')
 
+
 def signview(request):
     return render(request, 'main/sign.html')
 
-def registration(request):
 
+def registration(request):
     return render(request, 'main/registration.html')
+
 
 def main_page(request):
     return render(request, 'main/main.html')
